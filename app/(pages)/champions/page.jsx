@@ -3,6 +3,11 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import Champcard from "@/app/components/champcard";
 
+//CHECKLIST
+/**
+ * [ ] 케일, 모르가나, 라칸, 자야 예외 처리하기
+ */
+
 function Champions() {
   const [champions, setChampions] = useState([]);
 
@@ -14,8 +19,9 @@ function Champions() {
         );
         const championsData = Object.values(response.data.data).map(
           (champ) => ({
-            name: champ.id,
+            name: champ.name,
             id: champ.key,
+            title: champ.title,
             splashImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`, // 기본 스킨의 스플래시 이미지 URL
           })
         );
@@ -40,6 +46,7 @@ function Champions() {
             imgHref={champ.splashImage}
             desc={`${champ.name} splash`}
             champ={champ.name}
+            title={champ.title}
           />
         ))}
       </div>

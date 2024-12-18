@@ -1,4 +1,4 @@
-export default function Champcard({ imgHref, desc, champ }) {
+export default function Champcard({ imgHref, desc, champ, title }) {
   return (
     <div className="relative flex flex-col justify-center items-center w-60 h-60 overflow-hidden">
       <img
@@ -9,7 +9,10 @@ export default function Champcard({ imgHref, desc, champ }) {
           object-cover scale-100 w-full h-full hover:scale-110
         "
       />
-      <p className="absolute left-0 bottom-0">{champ}</p>
+      <p className="absolute">{title}</p>
+      <div className="absolute flex items-center justify-center bottom-0 w-full h-max bg-[rgba(0,0,0,0.5)]">
+        <p>{champ}</p>
+      </div>
     </div>
   );
 }
