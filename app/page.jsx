@@ -4,7 +4,7 @@ import Search from "./components/search";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex justify-center items-center p-2 flex-col">
       <Search />
       <section className="flex p-5 gap-4">
         <Gamecard />

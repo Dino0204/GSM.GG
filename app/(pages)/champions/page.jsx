@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Champcard from "@/app/components/champcard";
 
 function Champions() {
   const [champions, setChampions] = useState([]);
@@ -15,6 +16,7 @@ function Champions() {
           (champ) => ({
             name: champ.id,
             id: champ.key,
+            splashImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`, // 기본 스킨의 스플래시 이미지 URL
           })
         );
         setChampions(championsData);
@@ -30,15 +32,17 @@ function Champions() {
   }, []);
 
   return (
-    <div className="text-white font-bold text-sm">
-      <h1>챔피언 목록</h1>
-      <ul>
+    <div className="flex justify-center items-center p-2">
+      <div className="flex flex-wrap justify-center items-center text-white font-bold text-sm w-1/2 gap-2">
         {champions.map((champ) => (
-          <li key={champ.id}>
-            {champ.name} (ID: {champ.id})
-          </li>
+          <Champcard
+            key={champ.id}
+            imgHref={champ.splashImage}
+            desc={`${champ.name} splash`}
+            champ={champ.name}
+          />
         ))}
-      </ul>
+      </div>
     </div>
   );
 }
