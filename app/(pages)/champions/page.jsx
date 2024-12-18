@@ -1,20 +1,22 @@
 "use client";
 import { useEffect, useState } from "react";
+import axios from "axios";
 
-function champions() {
+function Champions() {
   const [champions, setChampions] = useState([]);
 
   useEffect(() => {
     const fetchChampions = async () => {
       try {
-        const response = await fetch(
+        const response = await axios.get(
           "http://ddragon.leagueoflegends.com/cdn/13.19.1/data/ko_KR/champion.json"
         );
-        const data = await response.json();
-        const championsData = Object.values(data.data).map((champ) => ({
-          name: champ.id,
-          id: champ.key,
-        }));
+        const championsData = Object.values(response.data.data).map(
+          (champ) => ({
+            name: champ.id,
+            id: champ.key,
+          })
+        );
         setChampions(championsData);
       } catch (error) {
         console.error(
@@ -41,4 +43,4 @@ function champions() {
   );
 }
 
-export default champions;
+export default Champions;
