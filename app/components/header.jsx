@@ -12,7 +12,7 @@ export default function Header() {
           <Image src={Logo} alt="logo" height={32} className="ml-2" />
         </Link>
       </section>
-      <section className="flex items-center bg-blue-500 p-2 justify-between font-bold text-sm text-white">
+      <section className="flex items-center bg-blue-500 p-2 justify-between text-sm ">
         <div className="flex gap-4 ">
           <Link href="/">홈</Link>
           <Link href="/champions">챔피언 분석</Link>

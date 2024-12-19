@@ -8,7 +8,7 @@ import Champcard from "@/app/components/champcard";
  * [ ] 케일, 모르가나, 라칸, 자야 예외 처리하기
  */
 
-function Champions() {
+export default function Champions() {
   const [champions, setChampions] = useState([]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ function Champions() {
 
   return (
     <div className="flex justify-center items-center p-2">
-      <div className="flex flex-wrap justify-center items-center text-white font-bold text-sm w-1/2 gap-2">
+      <div className="flex flex-wrap justify-center items-center text-sm w-1/2 gap-2">
         {champions.map((champ) => (
           <Champcard
             key={champ.id}
@@ -53,5 +53,3 @@ function Champions() {
     </div>
   );
 }
-
-export default Champions;

@@ -1,7 +1,5 @@
 import React from "react";
 
-function leaderboards() {
+export default function Leaderboards() {
   return <div>leaderboards</div>;
 }
-
-export default leaderboards;

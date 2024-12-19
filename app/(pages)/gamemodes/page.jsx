@@ -1,7 +1,5 @@
 import React from "react";
 
-function gamemodes() {
+export default function Gamemodes() {
   return <div>gamemodes</div>;
 }
-
-export default gamemodes;
