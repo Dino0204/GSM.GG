@@ -1,12 +1,8 @@
 "use client";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Champcard from "@/app/components/champcard";
-
-//CHECKLIST
-/**
- * [ ] 케일, 모르가나, 라칸, 자야 예외 처리하기
- */
+import Link from "next/link";
+import Image from "next/image";
 
 export default function Champions() {
   const [champions, setChampions] = useState([]);
@@ -20,11 +16,13 @@ export default function Champions() {
         const championsData = Object.values(response.data.data).map(
           (champ) => ({
             name: champ.name,
-            id: champ.key,
+            id: champ.id,
+            key: champ.key,
             title: champ.title,
-            splashImage: `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${champ.id}_0.jpg`, // 기본 스킨의 스플래시 이미지 URL
+            profile: `http://ddragon.leagueoflegends.com/cdn/13.19.1/img/champion/${champ.id}.png`,
           })
         );
+        console.log(Object.values(response.data.data));
         setChampions(championsData);
       } catch (error) {
         console.error(
@@ -39,17 +37,21 @@ export default function Champions() {
 
   return (
     <div className="flex justify-center items-center p-2">
-      <div className="flex flex-wrap justify-center items-center text-sm w-1/2 gap-2">
+      <ul className="flex flex-col justify-center items-start text-sm w-1/2 gap-2">
         {champions.map((champ) => (
-          <Champcard
-            key={champ.id}
-            imgHref={champ.splashImage}
-            desc={`${champ.name} splash`}
-            champ={champ.name}
-            title={champ.title}
-          />
+          <li className="flex items-center bg-slate-500 w-full" key={champ.key}>
+            <Image
+              src={champ.profile}
+              alt={`${champ.name} splash`}
+              width={32}
+              height={32}
+            />
+            <Link href={`skins/${champ.id}`}>
+              <span>{champ.name}</span>
+            </Link>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 }
