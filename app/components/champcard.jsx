@@ -1,4 +1,4 @@
-export default function Champcard({ id, name, title, splashImage, alt }) {
+export default function Champcard({ name, title, splashImage, alt }) {
   return (
     <div
       className={`relative flex flex-col justify-center items-center w-80 h-52 overflow-hidden rounded-3xl `}

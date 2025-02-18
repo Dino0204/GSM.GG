@@ -16,7 +16,7 @@ export default function Details() {
     const fetchChampionSkins = async () => {
       try {
         const response = await axios.get(
-          `http://ddragon.leagueoflegends.com/cdn/13.19.1/data/ko_KR/champion/${id}.json`
+          `http://ddragon.leagueoflegends.com/cdn/${process.env.NEXT_PUBLIC_DATA_DRAGON_VERSION}/data/ko_KR/champion/${id}.json`
         );
 
         // 필요한 데이터 추출 및 가공
@@ -39,7 +39,7 @@ export default function Details() {
   }, [id]);
 
   return (
-    <div className="flex justify-center items-center p-2">
+    <div className="flex justify-center">
       <div className="flex flex-wrap justify-center items-center gap-2">
         {championSkins.map((skin) => (
           <Champcard

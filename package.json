@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "axios": "^1.7.9",
-    "next": "15.1.1",
+    "next": "^15.1.6",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
@@ -20,5 +20,9 @@
     "eslint-config-next": "15.1.1",
     "postcss": "^8",
     "tailwindcss": "^3.4.1"
+  },
+  "headwind.classRegex": {
+    "css": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);",
+    "postcss": "\\B@apply\\s+([_a-zA-Z0-9\\s\\-\\:\\/]+);"
   }
 }

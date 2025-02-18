@@ -20,7 +20,8 @@ export default function Header() {
           <Link href="/leaderboards">랭킹</Link>
           <Link href="/stats">통계</Link>
         </div>
-        <Link href="/profile">
+        <Link href="/profile" className="flex items-center gap-2">
+          마이페이지
           <Image src={Profile} alt="profile" width={24} height={24} />
         </Link>
       </section>
